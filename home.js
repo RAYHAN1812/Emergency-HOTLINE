@@ -52,3 +52,21 @@ document.querySelectorAll(".fa-regular.fa-heart").forEach(function(heart) {
     
   });
 });
+//  copy 
+var copySpan = document.querySelector(".flex.items-center.font-bold.text-white span");
+
+var copyButtons = document.querySelectorAll(".copy");
+for (var i = 0; i < copyButtons.length; i++) {
+  copyButtons[i].addEventListener("click", function() {
+    var text = this.closest(".card").querySelector("h3").textContent;
+
+    navigator.clipboard.writeText(text).then(function() {
+      alert("Copied: " + text);
+      if (copySpan) {
+        copySpan.textContent = parseInt(copySpan.textContent) + 1;
+      }
+    }).catch(function() {
+      alert("Failed to copy!");
+    });
+  });
+}
