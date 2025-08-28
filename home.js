@@ -32,3 +32,23 @@ document.querySelectorAll(".call").forEach(function(button) {
     history.appendChild(entry);
   });
 });
+// Clear call history
+document.getElementById("clear").addEventListener("click", function() {
+  document.getElementById("History").innerHTML = "";
+});
+
+//  Heart 
+
+const heartBox = document.querySelector(".flex.items-center.font-bold"); 
+const heartSpan = heartBox.querySelector("span");
+let hearts = parseInt(heartSpan.textContent);
+
+
+document.querySelectorAll(".fa-regular.fa-heart").forEach(function(heart) {
+  heart.addEventListener("click", function() {
+    hearts += 1;
+    heartSpan.textContent = hearts;
+
+    
+  });
+});
